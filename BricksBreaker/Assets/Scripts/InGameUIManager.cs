@@ -1,18 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BricksBreaker.Data;
+using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private Brick[] Bricks;
+    [SerializeField]
+    private Player Player;
+    [SerializeField]
+    private Ball Ball;
+    [SerializeField]
+    private Text Text;
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

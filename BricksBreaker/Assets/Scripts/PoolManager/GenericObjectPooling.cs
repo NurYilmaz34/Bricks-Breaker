@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericObjectPooling<T> where T : MonoBehaviour, IPool
+abstract class GenericObjectPooling<T> where T : MonoBehaviour, IPool
 {
     public T ObjectToPool;
     private Queue<T> PooledObject = new Queue<T>();

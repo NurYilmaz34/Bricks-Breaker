@@ -1,4 +1,6 @@
-﻿public interface IPool 
+﻿using UnityEngine;
+
+public interface IPool 
 {
     void MyPool();
 }

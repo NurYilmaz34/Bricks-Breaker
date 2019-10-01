@@ -62,10 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\BallDirection.cs" />
     <Compile Include="Assets\Scripts\Brick.cs" />
     <Compile Include="Assets\Scripts\Data\BrickData.cs" />
+    <Compile Include="Assets\Scripts\Data\CommonConstants.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InGameUIManager.cs" />
+    <Compile Include="Assets\Scripts\Playerl.cs" />
     <Compile Include="Assets\Scripts\PoolManager\GenericObjectPooling.cs" />
     <Compile Include="Assets\Scripts\PoolManager\IPool.cs" />
     <Reference Include="Unity.Timeline.Editor">
