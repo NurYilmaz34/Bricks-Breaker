@@ -9,14 +9,5 @@ public class Brick : MonoBehaviour
     [SerializeField]
     private Text BrickText;
     public BrickData BrickData { get; set; }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    
 }
