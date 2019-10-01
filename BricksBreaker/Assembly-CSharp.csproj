@@ -64,6 +64,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Brick.cs" />
     <Compile Include="Assets\Scripts\Data\BrickData.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GenericObjectPooling.cs" />
+    <Compile Include="Assets\Scripts\InGameUIManager.cs" />
+    <Compile Include="Assets\Scripts\IPool.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Nur/Desktop/Bricks Breaker/BricksBreaker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
