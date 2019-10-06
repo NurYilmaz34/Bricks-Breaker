@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-abstract class GenericObjectPooling<T> where T : MonoBehaviour, IPool
+abstract class GenericObjectPooling<T> where T : MonoBehaviour
 {
     public T ObjectToPool;
     private Queue<T> PooledObject = new Queue<T>();
@@ -14,8 +14,6 @@ abstract class GenericObjectPooling<T> where T : MonoBehaviour, IPool
         Instance = this;
     }
     #endregion
-
-    public void MyPool(){}
 
     public T Get()
     {

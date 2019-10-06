@@ -299,7 +299,9 @@
 /define:CSHARP_7_3_OR_NEWER
 Assets\Scripts\Brick.cs
 Assets\Scripts\Data\BrickData.cs
+Assets\Scripts\Data\CommonConstants.cs
 Assets\Scripts\GameManager.cs
 Assets\Scripts\InGameUIManager.cs
+Assets\Scripts\PlayerBall.cs
 Assets\Scripts\PoolManager\GenericObjectPooling.cs
 Assets\Scripts\PoolManager\IPool.cs

@@ -12,7 +12,7 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField]
     private Player Player;
     [SerializeField]
-    private Ball Ball;
+    private PlayerBall Ball;
     [SerializeField]
     private Text Text;
 
