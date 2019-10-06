@@ -5,13 +5,18 @@ using BricksBreaker.Data;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerBall PlayerBall;
+    public Ball PlayerBall;
     public GameObject ReferenceBall;
     private List<GameObject> ReferenceBallList;
+    private Vector3 firstTouch;
+    private Vector3 secondTouch;
+    private Vector3 tempTouch;
 
 
     void Start()
     {
+        firstTouch = PlayerBall.transform.position;
+        tempTouch = firstTouch;
         CreateReferenceList();
     }
 
@@ -26,4 +31,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void GetTouchPosition()
+    {
+        if (Input.touchCount == 1)
+        {
+            Touch finger = Input.GetTouch(0);
+            if (finger.phase == TouchPhase.Began)
+            {
+                //tempTouch = Camera.ScreenToWorldPoint(new Vector3());
+                ShowReferenceBallList();
+            }
+            else if (finger.phase == TouchPhase.Moved)
+            {
+
+            }
+            else if (finger.phase == TouchPhase.Ended)
+            {
+
+            }
+        }
+    }
+
+    public void ShowReferenceBallList()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+        {
+            ReferenceBallList[i].SetActive(true);
+        }
+    }
+
+    public void GetAngle()
+    {
+
+    }
 }

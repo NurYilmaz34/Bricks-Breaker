@@ -10,9 +10,9 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField]
     private Brick[] Bricks;
     [SerializeField]
-    private Player Player;
+    private PlayerBall PlayerBall;
     [SerializeField]
-    private PlayerBall Ball;
+    private Ball Ball;
     [SerializeField]
     private Text Text;
 
