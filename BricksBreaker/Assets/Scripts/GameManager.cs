@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using BricksBreaker.Data;
 
@@ -8,16 +7,14 @@ public class GameManager : MonoBehaviour
     public Ball PlayerBall;
     public GameObject ReferenceBall;
     private List<GameObject> ReferenceBallList;
-    private Vector3 firstTouch;
-    private Vector3 secondTouch;
-    private Vector3 tempTouch;
-
+    private Vector3 ReferenceBallFirstPosition;
+    private Vector3 ReferenceBallSecondPosition;
+    private float AngleReferenceBallList, AngleXReferenceBallList, AngleYReferenceBallList;
 
     void Start()
     {
-        firstTouch = PlayerBall.transform.position;
-        tempTouch = firstTouch;
         CreateReferenceList();
+        ReferenceBallFirstPosition = PlayerBall.transform.position;
     }
 
     public void CreateReferenceList()
@@ -38,12 +35,13 @@ public class GameManager : MonoBehaviour
             Touch finger = Input.GetTouch(0);
             if (finger.phase == TouchPhase.Began)
             {
-                //tempTouch = Camera.ScreenToWorldPoint(new Vector3());
-                ShowReferenceBallList();
+                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(finger.position);
+                GetDirectedReferenceBallList();
             }
             else if (finger.phase == TouchPhase.Moved)
             {
-
+                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(finger.position);
+                GetDirectedReferenceBallList();
             }
             else if (finger.phase == TouchPhase.Ended)
             {
@@ -51,17 +49,21 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    public void ShowReferenceBallList()
+    public void GetDirectedReferenceBallList()
     {
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
+
             ReferenceBallList[i].SetActive(true);
         }
     }
 
     public void GetAngle()
     {
+        AngleReferenceBallList = Mathf.Atan2(ReferenceBallSecondPosition.y - ReferenceBallFirstPosition.y, ReferenceBallSecondPosition.x - ReferenceBallFirstPosition.x);
+        AngleXReferenceBallList = Mathf.Cos(AngleReferenceBallList);
+        AngleYReferenceBallList = Mathf.Sin(AngleReferenceBallList);
+
 
     }
 }

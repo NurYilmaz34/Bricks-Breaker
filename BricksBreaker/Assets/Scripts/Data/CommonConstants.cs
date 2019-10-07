@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BricksBreaker.Data
+﻿namespace BricksBreaker.Data
 {
     public class CommonConstants
     {
