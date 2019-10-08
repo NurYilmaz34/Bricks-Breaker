@@ -6,6 +6,13 @@
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -14,8 +21,6 @@
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll"
-/reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll"
-/reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll"
@@ -66,14 +71,9 @@
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/UnityEditor.dll"
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/Managed/Unity.Locator.dll"
-/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.Timeline.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+/reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll"
+/reference:"C:/Program Files/Unity Hub/Editor/Unity.exe/2019.1.0f2/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Users/Nur/Desktop/Bricks Breaker/BricksBreaker/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll"
 /reference:"C:/Users/Nur/Desktop/Bricks Breaker/BricksBreaker/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll"
 /reference:"C:/Users/Nur/Desktop/Bricks Breaker/BricksBreaker/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll"
@@ -209,13 +209,10 @@
 /define:UNITY_2018_2_OR_NEWER
 /define:UNITY_2018_3_OR_NEWER
 /define:UNITY_2019_1_OR_NEWER
-/define:PLATFORM_ARCH_64
-/define:UNITY_64
 /define:UNITY_INCLUDE_TESTS
 /define:ENABLE_AUDIO
 /define:ENABLE_CACHING
 /define:ENABLE_CLOTH
-/define:ENABLE_DUCK_TYPING
 /define:ENABLE_MICROPHONE
 /define:ENABLE_MULTIPLE_DISPLAYS
 /define:ENABLE_PHYSICS
@@ -232,7 +229,6 @@
 /define:ENABLE_WWW
 /define:ENABLE_CLOUD_SERVICES_COLLAB
 /define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
-/define:ENABLE_CLOUD_SERVICES_ADS
 /define:ENABLE_CLOUD_HUB
 /define:ENABLE_CLOUD_PROJECT_ID
 /define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
@@ -255,33 +251,51 @@
 /define:INCLUDE_GI
 /define:ENABLE_MONO_BDWGC
 /define:PLATFORM_SUPPORTS_MONO
-/define:RENDER_SOFTWARE_CURSOR
 /define:INCLUDE_PUBNUB
 /define:ENABLE_VIDEO
 /define:ENABLE_CUSTOM_RENDER_TEXTURE
 /define:ENABLE_LOCALIZATION
-/define:PLATFORM_STANDALONE_WIN
-/define:PLATFORM_STANDALONE
-/define:UNITY_STANDALONE_WIN
-/define:UNITY_STANDALONE
-/define:ENABLE_SUBSTANCE
 /define:ENABLE_RUNTIME_GI
-/define:ENABLE_MOVIES
+/define:ENABLE_SUBSTANCE
+/define:ENABLE_GAMECENTER
 /define:ENABLE_NETWORK
-/define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
 /define:ENABLE_UNITYWEBREQUEST
 /define:ENABLE_CLOUD_SERVICES
+/define:ENABLE_CLOUD_SERVICES_ADS
 /define:ENABLE_CLOUD_SERVICES_ANALYTICS
 /define:ENABLE_CLOUD_SERVICES_PURCHASING
 /define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
-/define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+/define:ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING
+/define:ENABLE_IOS_ON_DEMAND_RESOURCES
+/define:ENABLE_IOS_APP_SLICING
 /define:ENABLE_SCRIPTING_GC_WBARRIERS
-/define:ENABLE_EVENT_QUEUE
-/define:ENABLE_CLUSTER_SYNC
-/define:ENABLE_CLUSTERINPUT
+/define:PLAYERCONNECTION_LISTENS_FIXED_PORT
+/define:DEBUGGER_LISTENS_FIXED_PORT
+/define:PLATFORM_SUPPORTS_ADS_ID
+/define:SUPPORT_ENVIRONMENT_VARIABLES
+/define:PLATFORM_SUPPORTS_PROFILER
+/define:ENABLE_ENGINE_CODE_STRIPPING
+/define:PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR
+/define:STRICTCPP_NEW_DELETE_SIGNATURES
+/define:HAS_NEON_SKINNING
+/define:UNITY_GFX_USE_PLATFORM_VSYNC
+/define:UNITY_INPUT_SIMULATE_EVENTS
+/define:PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG
+/define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+/define:UNITY_ASTC_ONLY_DECOMPRESS
+/define:SUPPORTS_GRANULAR_MODULE_REGISTRATION
+/define:ENABLE_UNITYADS_RUNTIME
+/define:UNITY_UNITYADS_API
+/define:PLATFORM_IOS
+/define:UNITY_IOS
+/define:PLATFORM_IPHONE
+/define:UNITY_IPHONE
+/define:UNITY_IPHONE_API
+/define:SUPPORT_MULTIPLE_DISPLAYS
 /define:ENABLE_VR
 /define:ENABLE_AR
-/define:ENABLE_WEBSOCKET_HOST
+/define:UNITY_HAS_GOOGLEVR
+/define:ENABLE_SPATIALTRACKING
 /define:ENABLE_MONO
 /define:NET_STANDARD_2_0
 /define:ENABLE_PROFILER

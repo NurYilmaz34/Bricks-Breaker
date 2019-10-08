@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     private List<GameObject> ReferenceBallList;
     private Vector3 ReferenceBallFirstPosition;
     private Vector3 ReferenceBallSecondPosition;
-    private float AngleReferenceBallList, AngleXReferenceBallList, AngleYReferenceBallList;
+    private float AngleReferenceBall;
+    private float AngleXReferenceBallList;
+    private float AngleYReferenceBallList;
+    private float TempX;
+    private float TempY;
 
     void Start()
     {
@@ -17,6 +21,10 @@ public class GameManager : MonoBehaviour
         ReferenceBallFirstPosition = PlayerBall.transform.position;
     }
 
+    private void Update()
+    {
+        GetTouchPosition();
+    }
     public void CreateReferenceList()
     {
         ReferenceBallList = new List<GameObject>();
@@ -28,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GetTouchPosition()
+    public void GetTouchPosition()
     {
         if (Input.touchCount == 1)
         {
@@ -49,21 +57,31 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void GetDirectedReferenceBallList()
+    {
+        AngleReferenceBall = Mathf.Atan2(ReferenceBallSecondPosition.y - ReferenceBallFirstPosition.y, ReferenceBallSecondPosition.x - ReferenceBallFirstPosition.x);
+        AngleXReferenceBallList = Mathf.Cos(AngleReferenceBall);
+        AngleYReferenceBallList = Mathf.Sin(AngleReferenceBall);
+
+        TempX = ReferenceBallFirstPosition.x;
+        TempY = ReferenceBallFirstPosition.y;
+
+        GetAnge();
+    }
+
+    public void GetAnge()
     {
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
+            TempX += AngleXReferenceBallList;
+            TempY += AngleYReferenceBallList;
 
+            ReferenceBallList[i].transform.position = new Vector3(TempX, TempY, 0);
             ReferenceBallList[i].SetActive(true);
         }
     }
 
-    public void GetAngle()
-    {
-        AngleReferenceBallList = Mathf.Atan2(ReferenceBallSecondPosition.y - ReferenceBallFirstPosition.y, ReferenceBallSecondPosition.x - ReferenceBallFirstPosition.x);
-        AngleXReferenceBallList = Mathf.Cos(AngleReferenceBallList);
-        AngleYReferenceBallList = Mathf.Sin(AngleReferenceBallList);
 
 
-    }
 }
