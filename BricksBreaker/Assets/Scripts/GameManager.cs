@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         GetTouchPosition();
     }
+
     public void CreateReferenceList()
     {
         ReferenceBallList = new List<GameObject>();
@@ -82,6 +83,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+        {
+            if (collision.collider.name == "Wall-right")
+            {
+                 ReferenceBallList[i].transform.position = new Vector3(-ReferenceBall.transform.position.x, ReferenceBall.transform.position.y, 0);
+            }
+            else if (collision.collider.name == "Wall-left")
+            {
 
+            }
+            else if (collision.collider.name == "Wall-up")
+            {
+
+            }
+            else if (collision.collider.name == "Wall-down")
+            {
+
+            }
+        }
+        
+    }
 
 }
