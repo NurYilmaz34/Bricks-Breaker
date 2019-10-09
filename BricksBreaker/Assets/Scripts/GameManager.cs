@@ -54,8 +54,20 @@ public class GameManager : MonoBehaviour
             }
             else if (finger.phase == TouchPhase.Ended)
             {
-
+                for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+                {
+                    Move(ReferenceBallSecondPosition - ReferenceBallFirstPosition);
+                }
+                
             }
+        }
+    }
+
+    private void Move(Vector2 force)
+    {
+        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+        {
+            ReferenceBallList[i].GetComponent<Rigidbody2D>().velocity = force.normalized*5;
         }
     }
 
@@ -68,10 +80,10 @@ public class GameManager : MonoBehaviour
         TempX = ReferenceBallFirstPosition.x;
         TempY = ReferenceBallFirstPosition.y;
 
-        GetAnge();
+        GetReferenceBall();
     }
 
-    public void GetAnge()
+    public void GetReferenceBall()
     {
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
@@ -83,28 +95,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void CheckOfRaycastHit()
     {
-        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
-        {
-            if (collision.collider.name == "Wall-right")
-            {
-                 ReferenceBallList[i].transform.position = new Vector3(-ReferenceBall.transform.position.x, ReferenceBall.transform.position.y, 0);
-            }
-            else if (collision.collider.name == "Wall-left")
-            {
 
-            }
-            else if (collision.collider.name == "Wall-up")
-            {
-
-            }
-            else if (collision.collider.name == "Wall-down")
-            {
-
-            }
-        }
-        
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+    //    {
+    //        if (collision.collider.name == "Wall-right")
+    //        {
+    //             ReferenceBallList[i].transform.position = new Vector3(-ReferenceBall.transform.position.x, ReferenceBall.transform.position.y, 0);
+    //        }
+    //        else if (collision.collider.name == "Wall-left")
+    //        {
+                
+    //        }
+    //        else if (collision.collider.name == "Wall-up")
+    //        {
+
+    //        }
+    //        else if (collision.collider.name == "Wall-down")
+    //        {
+
+    //        }
+    //    }
+        
+    //}
 
 }
