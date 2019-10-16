@@ -3,16 +3,22 @@ using System.Collections;
 
 public class Ball : MonoBehaviour
 {
+    public Rigidbody2D BallRigidbody;
+    public int Speed = 7;
+    public GameManager GameManager;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
-
+        BallRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
+        Move(GameManager.ReferenceBallSecondPosition-GameManager.ReferenceBallFirstPosition);
+    }
 
+    public void Move(Vector2 Direction)
+    {
+        BallRigidbody.velocity = Direction.normalized * Speed;
     }
 }

@@ -4,21 +4,29 @@ using BricksBreaker.Data;
 
 public class GameManager : MonoBehaviour
 {
-    public Ball PlayerBall;
+    public GameObject PlayerBall;
     public GameObject ReferenceBall;
+    public LayerMask LayerMasks;
+    public Ball Ball;
     private List<GameObject> ReferenceBallList;
-    private Vector3 ReferenceBallFirstPosition;
-    private Vector3 ReferenceBallSecondPosition;
+    private List<Ball> BallList;
+    public Vector3 ReferenceBallFirstPosition;
+    public Vector3 ReferenceBallSecondPosition;
     private float AngleReferenceBall;
-    private float AngleXReferenceBallList;
-    private float AngleYReferenceBallList;
-    private float TempX;
-    private float TempY;
+    private float AngleValueXReferenceBallList;
+    private float AngleValueYReferenceBallList;
+    private float TempXPosition;
+    private float TempYPosition;
+    private bool showReferenceList = false;
+    private bool triggerWall = false;
+    private bool isMoving;
+
 
     void Start()
     {
         CreateReferenceList();
         ReferenceBallFirstPosition = PlayerBall.transform.position;
+        Ball.GameManager = this;
     }
 
     private void Update()
@@ -32,6 +40,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
             GameObject refernceObj = Instantiate(ReferenceBall, Vector3.zero, Quaternion.identity);
+            refernceObj.name = "referenceball_" + i.ToString();
             ReferenceBallList.Add(refernceObj);
             ReferenceBallList[i].SetActive(false);
         }
@@ -44,84 +53,88 @@ public class GameManager : MonoBehaviour
             Touch finger = Input.GetTouch(0);
             if (finger.phase == TouchPhase.Began)
             {
-                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(finger.position);
+                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                 GetDirectedReferenceBallList();
+                isMoving = false;
             }
             else if (finger.phase == TouchPhase.Moved)
             {
-                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(finger.position);
+                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                 GetDirectedReferenceBallList();
+                isMoving = false;
             }
             else if (finger.phase == TouchPhase.Ended)
             {
                 for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
                 {
-                    Move(ReferenceBallSecondPosition - ReferenceBallFirstPosition);
+                    ReferenceBallList[i].SetActive(false);
                 }
-                
+                isMoving = true;
             }
-        }
-    }
+            if (isMoving == true)
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    var Ball = BallPool.Instance.Get();
+                    Ball.gameObject.SetActive(true);
+                }
 
-    private void Move(Vector2 force)
-    {
-        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
-        {
-            ReferenceBallList[i].GetComponent<Rigidbody2D>().velocity = force.normalized*5;
+            }
         }
     }
 
     public void GetDirectedReferenceBallList()
     {
         AngleReferenceBall = Mathf.Atan2(ReferenceBallSecondPosition.y - ReferenceBallFirstPosition.y, ReferenceBallSecondPosition.x - ReferenceBallFirstPosition.x);
-        AngleXReferenceBallList = Mathf.Cos(AngleReferenceBall);
-        AngleYReferenceBallList = Mathf.Sin(AngleReferenceBall);
+        AngleValueXReferenceBallList = Mathf.Cos(AngleReferenceBall);
+        AngleValueYReferenceBallList = Mathf.Sin(AngleReferenceBall);
 
-        TempX = ReferenceBallFirstPosition.x;
-        TempY = ReferenceBallFirstPosition.y;
+        TempXPosition = ReferenceBallFirstPosition.x;
+        TempYPosition = ReferenceBallFirstPosition.y;
 
-        GetReferenceBall();
+        GetBall();
     }
 
-    public void GetReferenceBall()
+    public void GetBall()
     {
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
-            TempX += AngleXReferenceBallList;
-            TempY += AngleYReferenceBallList;
+            showReferenceList = true;
+            triggerWall = false;
 
-            ReferenceBallList[i].transform.position = new Vector3(TempX, TempY, 0);
-            ReferenceBallList[i].SetActive(true);
+            if (showReferenceList == true)
+            {
+                Collider2D isInsideOfCircle = Physics2D.OverlapCircle(new Vector2(TempXPosition, TempYPosition), ReferenceBallList[i].transform.localScale.x, LayerMasks);
+
+                if (isInsideOfCircle == null)
+                {
+                    showReferenceList = true;
+                }
+                else if (isInsideOfCircle.CompareTag("wall"))
+                {
+                    if (!triggerWall)
+                    {
+                        showReferenceList = true;
+                        AngleValueXReferenceBallList *= -1;
+                        triggerWall = true;
+                    }
+                }
+                else if (isInsideOfCircle.CompareTag("brick"))
+                {
+                    //Debug.Log("brick");
+                    showReferenceList = false;
+                }
+            }
+
+            TempXPosition += AngleValueXReferenceBallList/2;
+            TempYPosition += AngleValueYReferenceBallList/2;
+            ReferenceBallList[i].transform.position = new Vector3(TempXPosition, TempYPosition, 0);
+
+            if (showReferenceList)
+                ReferenceBallList[i].SetActive(true);
+            else
+                ReferenceBallList[i].SetActive(false);
+
         }
     }
-
-    private void CheckOfRaycastHit()
-    {
-
-    }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
-    //    {
-    //        if (collision.collider.name == "Wall-right")
-    //        {
-    //             ReferenceBallList[i].transform.position = new Vector3(-ReferenceBall.transform.position.x, ReferenceBall.transform.position.y, 0);
-    //        }
-    //        else if (collision.collider.name == "Wall-left")
-    //        {
-                
-    //        }
-    //        else if (collision.collider.name == "Wall-up")
-    //        {
-
-    //        }
-    //        else if (collision.collider.name == "Wall-down")
-    //        {
-
-    //        }
-    //    }
-        
-    //}
-
 }

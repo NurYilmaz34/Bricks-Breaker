@@ -67,10 +67,11 @@
     <Compile Include="Assets\Scripts\Data\BrickData.cs" />
     <Compile Include="Assets\Scripts\Data\CommonConstants.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GenericObjectPooling.cs" />
     <Compile Include="Assets\Scripts\InGameUIManager.cs" />
+    <Compile Include="Assets\Scripts\IPool\BallPool.cs" />
+    <Compile Include="Assets\Scripts\IPool\BrickPool.cs" />
     <Compile Include="Assets\Scripts\PlayerBall.cs" />
-    <Compile Include="Assets\Scripts\PoolManager\GenericObjectPooling.cs" />
-    <Compile Include="Assets\Scripts\PoolManager\IPool.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Nur/Desktop/Bricks Breaker/BricksBreaker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
