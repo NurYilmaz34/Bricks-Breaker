@@ -10,23 +10,24 @@ public class GameManager : MonoBehaviour
     public Ball Ball;
     private List<GameObject> ReferenceBallList;
     private List<Ball> BallList;
+    [SerializeField]
     public Vector3 ReferenceBallFirstPosition;
+    [SerializeField]
     public Vector3 ReferenceBallSecondPosition;
     private float AngleReferenceBall;
     private float AngleValueXReferenceBallList;
     private float AngleValueYReferenceBallList;
     private float TempXPosition;
     private float TempYPosition;
-    private bool showReferenceList = false;
+    private bool showHelper = true;
     private bool triggerWall = false;
     private bool isMoving;
-
 
     void Start()
     {
         CreateReferenceList();
         ReferenceBallFirstPosition = PlayerBall.transform.position;
-        Ball.GameManager = this;
+        Ball.gameManager = this;
     }
 
     private void Update()
@@ -54,13 +55,13 @@ public class GameManager : MonoBehaviour
             if (finger.phase == TouchPhase.Began)
             {
                 ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                GetDirectedReferenceBallList();
+                GetAngleReferenceBallList();
                 isMoving = false;
             }
             else if (finger.phase == TouchPhase.Moved)
             {
                 ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                GetDirectedReferenceBallList();
+                GetAngleReferenceBallList();
                 isMoving = false;
             }
             else if (finger.phase == TouchPhase.Ended)
@@ -70,20 +71,23 @@ public class GameManager : MonoBehaviour
                     ReferenceBallList[i].SetActive(false);
                 }
                 isMoving = true;
+
             }
             if (isMoving == true)
             {
+                isMoving = false;
                 for (int i = 0; i < 1; i++)
                 {
                     var Ball = BallPool.Instance.Get();
-                    Ball.gameObject.SetActive(true);
+                    //BallList.Add(Ball);
+                    //BallList[i].gameObject.SetActive(true);
                 }
 
             }
         }
     }
 
-    public void GetDirectedReferenceBallList()
+    public void GetAngleReferenceBallList()
     {
         AngleReferenceBall = Mathf.Atan2(ReferenceBallSecondPosition.y - ReferenceBallFirstPosition.y, ReferenceBallSecondPosition.x - ReferenceBallFirstPosition.x);
         AngleValueXReferenceBallList = Mathf.Cos(AngleReferenceBall);
@@ -97,44 +101,43 @@ public class GameManager : MonoBehaviour
 
     public void GetBall()
     {
+        showHelper = true;
+        triggerWall = false;
+
         for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
         {
-            showReferenceList = true;
-            triggerWall = false;
-
-            if (showReferenceList == true)
+            if (showHelper == true)
             {
                 Collider2D isInsideOfCircle = Physics2D.OverlapCircle(new Vector2(TempXPosition, TempYPosition), ReferenceBallList[i].transform.localScale.x, LayerMasks);
 
                 if (isInsideOfCircle == null)
                 {
-                    showReferenceList = true;
+                    showHelper = true;
                 }
-                else if (isInsideOfCircle.CompareTag("wall"))
+                else if (isInsideOfCircle.CompareTag("Wall"))
                 {
                     if (!triggerWall)
                     {
-                        showReferenceList = true;
+                        showHelper = true;
                         AngleValueXReferenceBallList *= -1;
                         triggerWall = true;
                     }
                 }
-                else if (isInsideOfCircle.CompareTag("brick"))
+                else if (isInsideOfCircle.CompareTag("Brick"))
                 {
-                    //Debug.Log("brick");
-                    showReferenceList = false;
+                    showHelper = false;
                 }
             }
 
-            TempXPosition += AngleValueXReferenceBallList/2;
-            TempYPosition += AngleValueYReferenceBallList/2;
+            TempXPosition += AngleValueXReferenceBallList;
+            TempYPosition += AngleValueYReferenceBallList;
             ReferenceBallList[i].transform.position = new Vector3(TempXPosition, TempYPosition, 0);
 
-            if (showReferenceList)
+            if (showHelper == true)
                 ReferenceBallList[i].SetActive(true);
             else
                 ReferenceBallList[i].SetActive(false);
-
+            
         }
     }
 }

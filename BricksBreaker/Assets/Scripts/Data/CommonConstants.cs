@@ -2,7 +2,7 @@
 {
     public class CommonConstants
     {
-        public const int NumberOfReferenceBall = 12;
+        public const int NumberOfReferenceBall = 8;
     }
 }
 

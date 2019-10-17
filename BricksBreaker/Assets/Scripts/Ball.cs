@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D BallRigidbody;
     public int Speed = 7;
-    public GameManager GameManager;
+    [SerializeField]
+    public GameManager gameManager;
 
     void Awake()
     {
@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
 
     public void Start()
     {
-        Move(GameManager.ReferenceBallSecondPosition-GameManager.ReferenceBallFirstPosition);
+        Move(gameManager.ReferenceBallSecondPosition-gameManager.ReferenceBallFirstPosition);
     }
 
     public void Move(Vector2 Direction)
