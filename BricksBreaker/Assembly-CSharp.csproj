@@ -68,7 +68,7 @@
     <Compile Include="Assets\Scripts\Data\CommonConstants.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GenericObjectPooling.cs" />
-    <Compile Include="Assets\Scripts\InGameUIManager.cs" />
+    <Compile Include="Assets\Scripts\InGameManager.cs" />
     <Compile Include="Assets\Scripts\IPool\BallPool.cs" />
     <Compile Include="Assets\Scripts\IPool\BrickPool.cs" />
     <Compile Include="Assets\Scripts\PlayerBall.cs" />
