@@ -2,16 +2,14 @@
 
 public class Ball : MonoBehaviour
 {
+    private float Speed = 15f;
     public Rigidbody2D BallRigidbody;
-    public float Speed = 8f;
-    private Collider2D Collider2D;
     [SerializeField]
     public InGameManager InGameManager;
 
     void Awake()
     {
         BallRigidbody = GetComponent<Rigidbody2D>();
-        Collider2D = GetComponent<Collider2D>();
     }
 
     public void Start()
@@ -19,16 +17,26 @@ public class Ball : MonoBehaviour
         Move(InGameManager.ReferenceBallSecondPosition-InGameManager.ReferenceBallFirstPosition);
     }
 
-    public void Move(Vector2 Direction)
+    public void Update()
     {
-        BallRigidbody.velocity = Direction.normalized * Speed;
+        SetBallPositionRestrict();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void SetBallPositionRestrict()
+    {
+        float BallXPosition = Mathf.Clamp(gameObject.transform.position.x, -2.6f, 2.6f);
+        float BallYPosition = Mathf.Clamp(gameObject.transform.position.y, -4.8f, 4.8f);
+        transform.position = new Vector3(BallXPosition, BallYPosition, 0);
+    }
+
+    public void Move(Vector2 Direction)
+    {
+        BallRigidbody.velocity = Direction.normalized * (Mathf.Clamp(Speed, 10f, 15f));
+    }
+    
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall-down"))
             BallPool.Instance.ReturnToPool(this);
-        if (collision.collider.CompareTag("Ball"))
-            Collider2D.isTrigger = false;
     }
 }

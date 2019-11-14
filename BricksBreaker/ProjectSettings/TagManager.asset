@@ -8,6 +8,7 @@ TagManager:
   - Brick
   - Ball
   - Wall-down
+  - Helper
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ball
   - Brick
   - Wall-down
-  - 
+  - Helper
   - 
   - 
   - 

@@ -1,33 +1,59 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using BricksBreaker.Data;
 
 public class InGameManager : MonoBehaviour
 {
-    public GameObject PlayerBall;
-    public LayerMask LayerMasks;
+    [SerializeField]
     public Ball Ball;
     [SerializeField]
-    public Vector3 ReferenceBallFirstPosition;
+    private Brick[] BrickArray;
     [SerializeField]
-    public Vector3 ReferenceBallSecondPosition;
-    private float AngleReferenceBall;
-    private float AngleValueXReferenceBallList;
-    private float AngleValueYReferenceBallList;
-    private float TempXPosition;
-    private float TempYPosition;
+    public GameObject PlayerBall;
+    [SerializeField]
+    public LayerMask LayerMasks;
+    [SerializeField]
+    public GameManager GameManager;
+    [SerializeField]
+    public Vector3 ReferenceBallFirstPosition    { get; set; }  
+    [SerializeField]
+    public Vector3 ReferenceBallSecondPosition   { get; set; }
+    private float AngleReferenceBall             { get; set; }
+    private float AngleValueXReferenceBallList   { get; set; }
+    private float AngleValueYReferenceBallList   { get; set; }
+    private float TempXPosition                  { get; set; }
+    private float TempYPosition                  { get; set; }
     private bool showHelper = true;
     private bool triggerWall = false;
     private bool isMoving;
-    [SerializeField]
-    public GameManager GameManager;
+    
 
     void Start()
     {
         ReferenceBallFirstPosition = PlayerBall.transform.position;
         Ball.InGameManager = this;
+        SetBrickData();
+    }
+
+    private void Update()
+    {
+        GetTouchPosition();
+    }
+
+    public void SetBrickData()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+        {
+            var Brick = BrickPool.Instance.Get();
+            Brick.transform.position = new Vector3(0, 4, 0);
+            Brick.name = "brick_" + i.ToString();
+            
+            BrickArray[i].BrickData = GameManager.BrickDataArray.First(lstData => lstData.Value == i);
+            BrickArray[i] = Brick;
+        }
     }
 
     public void GetTouchPosition()
@@ -49,7 +75,7 @@ public class InGameManager : MonoBehaviour
             }
             else if (finger.phase == TouchPhase.Ended)
             {
-                for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+                for (int i = 0; i < CommonConstants.NumberOfHelperBall; i++)
                 {
                     GameManager.ReferenceBallList[i].SetActive(false);
                 }
@@ -59,12 +85,20 @@ public class InGameManager : MonoBehaviour
             if (isMoving == true)
             {
                 isMoving = false;
-                for (int i = 0; i < 1; i++)
-                {
-                    var Ball = BallPool.Instance.Get();
-                }
-
+                StartCoroutine(SetSpawnBall());
             }
+        }
+    }
+
+    IEnumerator SetSpawnBall()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
+        {
+            yield return new WaitForSeconds(0.02f);
+            var Ball = BallPool.Instance.Get();
+            //Ball.transform.position = PlayerBall.transform.position;
+            //Ball.gameObject.SetActive(true);
+
         }
     }
 
@@ -85,7 +119,7 @@ public class InGameManager : MonoBehaviour
         showHelper = true;
         triggerWall = false;
 
-        for (int i = 0; i < CommonConstants.NumberOfReferenceBall; i++)
+        for (int i = 0; i < CommonConstants.NumberOfHelperBall; i++)
         {
             if (showHelper == true)
             {
