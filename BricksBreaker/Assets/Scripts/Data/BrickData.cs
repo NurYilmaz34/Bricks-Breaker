@@ -1,14 +1,19 @@
-﻿namespace BricksBreaker.Data
+﻿using System;
+using UnityEngine;
+
+namespace BricksBreaker.Data
 {
     public class BrickData
     {
-        public int Value { get; set; }
-        public int Order { get; set; }
+        public int Id        { get; set; }
+        public int Value     { get; set; }
+        public Vector3 Order { get; set; }
 
-        public BrickData(int value, int order)
+        public BrickData(int id, int value, Vector3 order)
         {
-            Value = value;
-            Order = order;
+            this.Id = id;
+            this.Value = value;
+            this.Order = order;
         }
     }
 }

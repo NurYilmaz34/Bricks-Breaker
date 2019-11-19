@@ -33,7 +33,7 @@ public abstract class GenericObjectPooling<T> : MonoBehaviour where T : Componen
     public void AddObject(int amount)
     {
         T obj = GameObject.Instantiate(ObjectToPool);
-        obj.gameObject.SetActive(true);
-        PooledObject.Enqueue(ObjectToPool);
+        obj.gameObject.SetActive(false);
+        PooledObject.Enqueue(obj);
     }
 }

@@ -5,13 +5,13 @@ using BricksBreaker.Data;
 public class GameManager : MonoBehaviour
 {
     public GameObject ReferenceBall;
-    public BrickData[] BrickDataArray           { get; set; }
+    public List<BrickData> BrickDataList        { get; set; }
     public List<GameObject> ReferenceBallList   { get; set; }
    
     void Start()
     {
         CreateReferenceList();
-        CreateBrickDataArray();
+        CreateBrickDataList();
     }
     
     public void CreateReferenceList() 
@@ -26,19 +26,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreateBrickDataArray()
+    public void CreateBrickDataList()
     {
-        BrickDataArray = new BrickData[CommonConstants.NumberOfBrick];
+        BrickDataList = new List<BrickData>();
 
         for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
         {
-            int valueOfValue = Random.Range(1,10);
-            int y = Random.Range(-3, 3);
-            transform.position = new Vector3(0, y, 0);
-            int orderOfOrder = (int)transform.position.y;
-            BrickDataArray[i] = new BrickData(valueOfValue, orderOfOrder);
+            int value = Random.Range(1, 10);
+            int yPos = Random.Range(-3, 3);
+            Vector3 order = new Vector3(0, yPos, 0);
+            BrickDataList.Add(new BrickData(i, value, order));
         }
-
     }
+
+    //public int GetBrickValue()
+    //{
+    //    return ;
+    //}
     
 }

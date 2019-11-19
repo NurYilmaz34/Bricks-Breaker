@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
 using BricksBreaker.Data;
@@ -10,7 +8,7 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     public Ball Ball;
     [SerializeField]
-    private Brick[] BrickArray;
+    private Brick[] Bricks;
     [SerializeField]
     public GameObject PlayerBall;
     [SerializeField]
@@ -35,6 +33,7 @@ public class InGameManager : MonoBehaviour
     {
         ReferenceBallFirstPosition = PlayerBall.transform.position;
         Ball.InGameManager = this;
+        GetBrick();
         SetBrickData();
     }
 
@@ -43,17 +42,33 @@ public class InGameManager : MonoBehaviour
         GetTouchPosition();
     }
 
+    public void GetBrick()
+    {
+        Bricks = new Brick[CommonConstants.NumberOfBrick];
+
+        for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+        {
+            var Brick = BrickPool.Instance.Get();
+            Brick.transform.position = new Vector3(0, Random.Range(-3, 5), 0);
+            Brick.name = "brick_" + i.ToString();
+            Bricks[i] = Brick;
+            Bricks[i].gameObject.SetActive(true);
+        }
+    }
+
     public void SetBrickData()
     {
         for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
         {
-            var Brick = BrickPool.Instance.Get();
-            Brick.transform.position = new Vector3(0, 4, 0);
-            Brick.name = "brick_" + i.ToString();
-            
-            BrickArray[i].BrickData = GameManager.BrickDataArray.First(lstData => lstData.Value == i);
-            BrickArray[i] = Brick;
+            Bricks[i].BrickData = GameManager.BrickDataList.First(lstBrickData => lstBrickData.Id == i);
+            Bricks[i].InGameManager = this;
+            //StartCoroutine(WaitData());
         }
+    }
+
+    IEnumerator WaitData()
+    {
+        yield return null;
     }
 
     public void GetTouchPosition()
@@ -94,10 +109,10 @@ public class InGameManager : MonoBehaviour
     {
         for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.03f);
             var Ball = BallPool.Instance.Get();
             //Ball.transform.position = PlayerBall.transform.position;
-            //Ball.gameObject.SetActive(true);
+            Ball.gameObject.SetActive(true);
 
         }
     }

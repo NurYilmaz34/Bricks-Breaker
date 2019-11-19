@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: bb2d53408d6922643b47d13f023c4dcb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 294346085163343904
+    second: kare copy_0
+  - first:
+      213: -1252213481325133778
+    second: kare copy_1
+  - first:
+      213: -3845634263564315844
+    second: kare copy_2
+  - first:
+      213: -3682039902532744927
+    second: kare copy_3
+  - first:
+      213: 7444686814183273435
+    second: kare copy_4
+  - first:
+      213: -2003642310748317588
+    second: kare copy_5
+  - first:
+      213: 5170471070335187634
+    second: kare copy_6
+  - first:
+      213: -3437838261361426516
+    second: kare copy_7
+  - first:
+      213: -1846204263948271663
+    second: kare copy_8
+  - first:
+      213: 8547357792827620139
+    second: kare copy_9
+  - first:
+      213: 7642321764004561547
+    second: kare copy_10
+  - first:
+      213: -1947659593177108888
+    second: kare copy_11
+  - first:
+      213: -6959497019826273448
+    second: kare copy_12
+  - first:
+      213: -2234706064727401977
+    second: kare copy_13
+  - first:
+      213: -6757082179371091805
+    second: kare copy_14
+  - first:
+      213: -9109223578318223511
+    second: kare copy_15
+  - first:
+      213: 3812458441369490942
+    second: kare copy_16
+  - first:
+      213: 5259042928622574252
+    second: kare copy_17
+  - first:
+      213: 8097503501401945607
+    second: kare copy_18
+  - first:
+      213: 3451424667129559648
+    second: kare copy_19
+  - first:
+      213: 6212874665800546635
+    second: kare copy_20
+  - first:
+      213: 2290040065755574930
+    second: kare copy_21
+  - first:
+      213: 6985572729172512649
+    second: kare copy_22
+  - first:
+      213: -5442281941883019742
+    second: kare copy_23
+  - first:
+      213: 6729050816404518458
+    second: kare copy_24
+  - first:
+      213: 1909207019416358432
+    second: kare copy_25
+  - first:
+      213: -8777885714341369520
+    second: kare copy_26
+  - first:
+      213: 4795818777279175633
+    second: kare copy_27
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kare copy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4076f08b3eec7f24386c380a23593adf
+      internalID: 294346085163343904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f45c36f11187341bfba02d7dbcd67e
+      internalID: -1252213481325133778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81129955adfb99a42ac16986de6aaabb
+      internalID: -3845634263564315844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6e02cf1382048438089f89ce6d4afe
+      internalID: -3682039902532744927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c128ead9a4b69e642bf981da0c103e8e
+      internalID: 7444686814183273435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_5
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e0049c21835d34f844a771ec1c9873
+      internalID: -2003642310748317588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_6
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 376.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4a72013bef8a1439a356ffadcf9ba7
+      internalID: 5170471070335187634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91681bf92a989184682e867932fbe9fa
+      internalID: -3437838261361426516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f27a3010ecf904fb062b71c7214e2e
+      internalID: -1846204263948271663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4b3371358ad2a469f2967d6918c218
+      internalID: 8547357792827620139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_10
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4958d58e23e8941a92ebc88aafc575
+      internalID: 7642321764004561547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_11
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e6265406a0e75459f54f7f5fd001f3
+      internalID: -1947659593177108888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_12
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d2e794ec38a694aa0166ba28410b82
+      internalID: -6959497019826273448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_13
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 251.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15dd524f88df48a47b7333c2da02ea5b
+      internalID: -2234706064727401977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897b2d16140eb3d45b87977e5159554f
+      internalID: -6757082179371091805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_15
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42ea66ffc8d633d4eaca85d56c82d173
+      internalID: -9109223578318223511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_16
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fb07427e77d974da43cbfdc1749332
+      internalID: 3812458441369490942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_17
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28636630405424e43bb3896de06d994e
+      internalID: 5259042928622574252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_18
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a453ace276569742b9afd2e1d5d0040
+      internalID: 8097503501401945607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_19
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d7e730def89b348a59a6240be4b650
+      internalID: 3451424667129559648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_20
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 126.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b42738113ac0745ab1a508b51f370c
+      internalID: 6212874665800546635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c36f873a4bfc184189d1d5bc5a5d592
+      internalID: 2290040065755574930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5509c2dedea8ae41b20a15d238c4ec1
+      internalID: 6985572729172512649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_23
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fa5873d0363844fb249bcffa92bd4a
+      internalID: -5442281941883019742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_24
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a364e56052fbb43429620de809394f60
+      internalID: 6729050816404518458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_25
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242fef6ffd9ec9944ac7b395d4b76eb8
+      internalID: 1909207019416358432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_26
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef07af110306c2c4f8134cd45d59352f
+      internalID: -8777885714341369520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kare copy_27
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1.5
+        width: 130.28572
+        height: 125.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3b3f53afac1864c969b69fb83f614b
+      internalID: 4795818777279175633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fd29a65025add114eb1b759ed661e1a2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
