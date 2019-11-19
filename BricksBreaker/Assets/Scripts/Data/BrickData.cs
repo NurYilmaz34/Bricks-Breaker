@@ -11,9 +11,9 @@ namespace BricksBreaker.Data
 
         public BrickData(int id, int value, Vector3 order)
         {
-            this.Id = id;
-            this.Value = value;
-            this.Order = order;
+            Id = id;
+            Value = value;
+            Order = order;
         }
     }
 }

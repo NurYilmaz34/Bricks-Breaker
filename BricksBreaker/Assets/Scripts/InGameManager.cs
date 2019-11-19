@@ -2,13 +2,12 @@
 using System.Linq;
 using UnityEngine;
 using BricksBreaker.Data;
+using System.Collections.Generic;
 
 public class InGameManager : MonoBehaviour
 {
     [SerializeField]
     public Ball Ball;
-    [SerializeField]
-    private Brick[] Bricks;
     [SerializeField]
     public GameObject PlayerBall;
     [SerializeField]
@@ -33,44 +32,13 @@ public class InGameManager : MonoBehaviour
     {
         ReferenceBallFirstPosition = PlayerBall.transform.position;
         Ball.InGameManager = this;
-        GetBrick();
-        SetBrickData();
     }
 
     private void Update()
     {
         GetTouchPosition();
     }
-
-    public void GetBrick()
-    {
-        Bricks = new Brick[CommonConstants.NumberOfBrick];
-
-        for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
-        {
-            var Brick = BrickPool.Instance.Get();
-            Brick.transform.position = new Vector3(0, Random.Range(-3, 5), 0);
-            Brick.name = "brick_" + i.ToString();
-            Bricks[i] = Brick;
-            Bricks[i].gameObject.SetActive(true);
-        }
-    }
-
-    public void SetBrickData()
-    {
-        for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
-        {
-            Bricks[i].BrickData = GameManager.BrickDataList.First(lstBrickData => lstBrickData.Id == i);
-            Bricks[i].InGameManager = this;
-            //StartCoroutine(WaitData());
-        }
-    }
-
-    IEnumerator WaitData()
-    {
-        yield return null;
-    }
-
+    
     public void GetTouchPosition()
     {
         if (Input.touchCount == 1)
