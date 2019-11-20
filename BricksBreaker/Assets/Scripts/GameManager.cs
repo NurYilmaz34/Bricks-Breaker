@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public List<BrickData> BrickDataList        { get; set; }
     public List<GameObject> ReferenceBallList   { get; set; }
     [SerializeField]
-    private Brick[] Bricks;
+    public Brick[] Bricks;
 
 
     void Start()
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
         {
             var Brick = BrickPool.Instance.Get();
-            int value = Random.Range(1, 6);
+            int value = Random.Range(5, 11);
             int yPos = Random.Range(-3, 5);
             Vector3 order = new Vector3(0, yPos, 0);
             BrickDataList.Add(new BrickData(i, value, order));

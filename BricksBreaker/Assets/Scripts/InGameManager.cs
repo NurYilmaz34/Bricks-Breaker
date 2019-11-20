@@ -9,6 +9,8 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     public Ball Ball;
     [SerializeField]
+    public Brick Brick;
+    [SerializeField]
     public GameObject PlayerBall;
     [SerializeField]
     public LayerMask LayerMasks;
@@ -32,6 +34,7 @@ public class InGameManager : MonoBehaviour
     {
         ReferenceBallFirstPosition = PlayerBall.transform.position;
         Ball.InGameManager = this;
+        Brick.InGameManager = this;
     }
 
     private void Update()
@@ -79,7 +82,7 @@ public class InGameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.03f);
             var Ball = BallPool.Instance.Get();
-            //Ball.transform.position = PlayerBall.transform.position;
+            Ball.transform.position = PlayerBall.transform.position;
             Ball.gameObject.SetActive(true);
 
         }

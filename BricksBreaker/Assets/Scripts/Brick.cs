@@ -7,20 +7,25 @@ public class Brick : MonoBehaviour
 {
     [SerializeField]
     public Text BrickText;
-    private int amount = 0;
+    private int amountCollision;
     public BrickData BrickData          { get; set; }
-    public InGameManager InGameManager  { get; set; }
-    
+    [SerializeField]
+    public InGameManager InGameManager;
+
+    public void Start()
+    {
+        amountCollision = InGameManager.GameManager.GetValue(BrickData.Id);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
-            amount = InGameManager.GameManager.GetValue(BrickData.Id);
-            amount++;
-            Debug.Log(amount + "kere çarptı !");
-            if (amount == 5)
+            amountCollision--;
+            if (amountCollision == 0 || amountCollision < 0)
                 BrickPool.Instance.ReturnToPool(this);
+
+            Debug.Log(amountCollision);
         }
     }
 }
