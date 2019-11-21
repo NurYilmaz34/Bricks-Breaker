@@ -5,19 +5,23 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject ReferenceBall;
-    public List<BrickData> BrickDataList        { get; set; }
-    public List<GameObject> ReferenceBallList   { get; set; }
+    private bool IsScrollBreak = false;
     [SerializeField]
     public Brick[] Bricks;
-
+    [SerializeField]
+    public GameObject PlayerBall;
+    public GameObject ReferenceBall;
+    public List<Ball> BallList                  { get; set; }
+    public List<BrickData> BrickDataList        { get; set; }
+    public List<GameObject> ReferenceBallList   { get; set; }
+    
 
     void Start()
     {
         CreateReferenceList();
-        //CreateBrickDataList();
-        GetBrick();
+        GetBrickArray();
         SetBrickData();
+        GetBallList();
     }
     
     public void CreateReferenceList() 
@@ -31,21 +35,8 @@ public class GameManager : MonoBehaviour
             ReferenceBallList[i].SetActive(false);
         }
     }
-
-    //public void CreateBrickDataList()
-    //{
-    //    //BrickDataList = new List<BrickData>();
-
-    //    for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
-    //    {
-    //        //int value = Random.Range(1, 10);
-    //        //int yPos = Random.Range(-3, 3);
-    //        //Vector3 order = new Vector3(0, yPos, 0);
-    //        //BrickDataList.Add(new BrickData(i, value, order));
-    //    }
-    //}
-
-    public void GetBrick()
+    
+    public void GetBrickArray()
     {
         Bricks = new Brick[CommonConstants.NumberOfBrick];
         BrickDataList = new List<BrickData>();
@@ -53,8 +44,9 @@ public class GameManager : MonoBehaviour
         {
             var Brick = BrickPool.Instance.Get();
             int value = Random.Range(5, 11);
-            int yPos = Random.Range(-3, 5);
-            Vector3 order = new Vector3(0, yPos, 0);
+            int yPos = Random.Range(-1, 5);
+            int xPos = Random.Range(-2,2);
+            Vector3 order = new Vector3(xPos, yPos, 0);
             BrickDataList.Add(new BrickData(i, value, order));
             Brick.transform.position = order;
             Brick.name = "brick_" + i.ToString();
@@ -75,4 +67,63 @@ public class GameManager : MonoBehaviour
     {
         return BrickDataList[id].Value;
     }
+    
+    public void GetBallList()
+    {
+        BallList = new List<Ball>();
+        for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
+        {
+            var Ball = BallPool.Instance.Get();
+            Ball.transform.position = PlayerBall.transform.position;
+            BallList.Add(Ball);
+            BallList[i].gameObject.SetActive(false);
+        }
+    }
+    
+    public bool IsGameOver()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+        {
+            if (Bricks[i].gameObject.activeInHierarchy == true)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsBallOver()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
+        {
+            if (BallList[i].gameObject.activeInHierarchy == true)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void ScrollControl()
+    {
+        if (!IsGameOver() && IsBallOver())
+        {
+            IsScrollBreak = true;
+        }
+    }
+
+    private void BrickScroll()
+    {
+        if (IsScrollBreak == true)
+        {
+            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+            {
+                Bricks[i].BrickData.Order -= new Vector3(0, 1, 0);
+                Bricks[i].transform.position = Bricks[i].BrickData.Order;
+                
+            }
+            IsScrollBreak = false;
+        }
+    }
+
 }

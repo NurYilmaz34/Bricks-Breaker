@@ -936,6 +936,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046378912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8430458690025386200, guid: 5e6e3ae8d26093d46b3ba9c8e2caba7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8430458689695676082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2126186259
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +974,7 @@ MonoBehaviour:
   ReferenceBall: {fileID: 1138320221869552782, guid: 331ed4c136972e64c9355a394513520b,
     type: 3}
   Bricks: []
+  PlayerBall: {fileID: 2046378912}
 --- !u!4 &2126186261
 Transform:
   m_ObjectHideFlags: 0

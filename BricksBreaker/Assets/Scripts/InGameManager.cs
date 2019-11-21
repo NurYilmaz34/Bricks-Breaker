@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 using BricksBreaker.Data;
-using System.Collections.Generic;
 
 public class InGameManager : MonoBehaviour
 {
@@ -76,15 +74,12 @@ public class InGameManager : MonoBehaviour
         }
     }
 
-    IEnumerator SetSpawnBall()
+    public IEnumerator SetSpawnBall()
     {
         for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
         {
             yield return new WaitForSeconds(0.03f);
-            var Ball = BallPool.Instance.Get();
-            Ball.transform.position = PlayerBall.transform.position;
-            Ball.gameObject.SetActive(true);
-
+            GameManager.BallList[i].gameObject.SetActive(true);
         }
     }
 
@@ -142,4 +137,5 @@ public class InGameManager : MonoBehaviour
         }
     }
 
+    
 }
