@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using BricksBreaker.Data;
 using System.Linq;
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
     public void CreateReferenceList() 
     {
         ReferenceBallList = new List<GameObject>();
-        for (int i = 0; i < CommonConstants.NumberOfHelperBall; i++)
+        for (int i = 0; i < CommonConstants.HelperBall; i++)
         {
             GameObject refernceObj = Instantiate(ReferenceBall, Vector3.zero, Quaternion.identity);
             refernceObj.name = "referenceball_" + i.ToString();
@@ -44,7 +43,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
         {
             var Brick = BrickPool.Instance.Get();
-            int value = Random.Range(5, 11);
+            int value = Random.Range(10, 25);
             int yPos = Random.Range(-1, 5);
             int xPos = Random.Range(-2,2);
             Vector3 order = new Vector3(xPos, yPos, 0);
@@ -80,8 +79,16 @@ public class GameManager : MonoBehaviour
             BallList[i].gameObject.SetActive(false);
         }
     }
-    
-    public bool IsGameOver()
+
+    public void SetBallEndPosition()
+    {
+        for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
+        {
+            BallList[i].transform.position = PlayerBall.transform.position;
+        }
+    }
+
+    public bool IsBrickOver()
     {
         for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
         {
@@ -104,11 +111,31 @@ public class GameManager : MonoBehaviour
         }
         return true;
     }
+    
+    public void BrickScroll()
+    {
+        if (IsScrollBreak == true)
+        {
+            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+            {
+                Bricks[i].BrickData.Order -= new Vector3(0, 1, 0);
+                Bricks[i].transform.position = Bricks[i].BrickData.Order;
+            }
+            IsScrollBreak = false;
+        }
+        else
+        {
+            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+            {
+                Bricks[i].transform.position = Bricks[i].BrickData.Order;
+            }
+        }
+    }
 
     public void ScrollControl()
     {
 
-        if (!IsGameOver() && IsBallOver())
+        if (!IsBrickOver() && IsBallOver())
         {
             IsScrollBreak = true;
         }
@@ -116,27 +143,6 @@ public class GameManager : MonoBehaviour
             IsScrollBreak = false;
 
         BrickScroll();
-    }
-
-    public void BrickScroll()
-    {
-        if (IsScrollBreak == true)
-        {
-            IsScrollBreak = false;
-            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
-            {
-                Bricks[i].BrickData.Order -= new Vector3(0, 1, 0);
-                Bricks[i].transform.position = Bricks[i].BrickData.Order;
-            }
-        }
-        else
-        {
-            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
-            {
-                Bricks[i].transform.position = Bricks[i].BrickData.Order;
-            }
-        }
-            
     }
 
 }

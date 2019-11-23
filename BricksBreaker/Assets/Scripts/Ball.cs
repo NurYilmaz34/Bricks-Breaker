@@ -2,7 +2,7 @@
 
 public class Ball : MonoBehaviour
 {
-    private float Speed = 15f;
+    public float Speed = 15f;
     public Rigidbody2D BallRigidbody;
     [SerializeField]
     public InGameManager InGameManager;
@@ -33,14 +33,14 @@ public class Ball : MonoBehaviour
     {
         BallRigidbody.velocity = Direction.normalized * (Mathf.Clamp(Speed, 10f, 15f));
     }
-    
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Wall-down"))
         {
             BallPool.Instance.ReturnToPool(this);
+            this.transform.position = InGameManager.GameManager.PlayerBall.transform.position;
         }
-            
     }
     
 }

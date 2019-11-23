@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using BricksBreaker.Data;
 using TMPro;
 
@@ -7,7 +6,7 @@ public class Brick : MonoBehaviour
 {
     private TextMeshPro ValueText;
     private int amountCollision;
-    public BrickData BrickData          { get; set; }
+    public BrickData BrickData { get; set; }
     [SerializeField]
     public InGameManager InGameManager;
 
@@ -15,6 +14,7 @@ public class Brick : MonoBehaviour
     {
         ValueText = GetComponentInChildren<TextMeshPro>();
     }
+
     public void Start()
     {
         amountCollision = InGameManager.GameManager.GetValue(BrickData.Id);
@@ -35,5 +35,4 @@ public class Brick : MonoBehaviour
             BrickPool.Instance.ReturnToPool(this);
     }
 
-    
 }

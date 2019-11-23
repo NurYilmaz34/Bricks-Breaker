@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 7783845572868800119, guid: f9368453b27be9c4085a0c6d5f8b79ab, type: 3}
-  Brick: {fileID: 5828811691511332648, guid: 5d731a337e2b24148aae41433089c6e0, type: 3}
+  Brick: {fileID: 6881020771724369181, guid: 5d731a337e2b24148aae41433089c6e0, type: 3}
   PlayerBall: {fileID: 8430458690025386200, guid: 5e6e3ae8d26093d46b3ba9c8e2caba7e,
     type: 3}
   LayerMasks:
@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb7f098dc768674abd44da5b030e4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToPool: {fileID: 5828811691511332648, guid: 5d731a337e2b24148aae41433089c6e0,
+  ObjectToPool: {fileID: 6881020771724369181, guid: 5d731a337e2b24148aae41433089c6e0,
     type: 3}
 --- !u!4 &1812551199
 Transform:

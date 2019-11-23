@@ -123,8 +123,6 @@ C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Analytics
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.CollabProxy.Editor.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Locator.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
-C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.TextMeshPro.dll
-C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Timeline.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Timeline.Editor.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\UnityEditor.dll
@@ -196,11 +194,9 @@ C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Legacy.NR
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.IvyParser.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Timeline.Editor.pdb
-C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.TextMeshPro.Editor.pdb
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.PackageManagerUI.Editor.pdb
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Timeline.pdb
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.CollabProxy.Editor.pdb
-C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.TextMeshPro.pdb
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\Unity.Analytics.DataPrivacy.pdb
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\nunit.framework.xml
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
@@ -208,3 +204,5 @@ C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\obj\Debug\Assembly-CSharp.cspr
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\obj\Debug\Assembly-CSharp.dll
 C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
+C:\Users\Nur\Desktop\Bricks Breaker\BricksBreaker\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll
