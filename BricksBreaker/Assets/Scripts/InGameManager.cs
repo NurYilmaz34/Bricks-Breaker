@@ -39,7 +39,7 @@ public class InGameManager : MonoBehaviour
     {
         GetTouchPosition();
     }
-    
+
     public void GetTouchPosition()
     {
         if (Input.touchCount == 1)
@@ -64,16 +64,20 @@ public class InGameManager : MonoBehaviour
                     GameManager.ReferenceBallList[i].SetActive(false);
                 }
                 isMoving = true;
-
             }
+
             if (isMoving == true)
             {
                 isMoving = false;
                 StartCoroutine(SetSpawnBall());
+                GameManager.ScrollControl();
+                Debug.Log("ok");
             }
+            else
+                return;
         }
     }
-
+    
     public IEnumerator SetSpawnBall()
     {
         for (int i = 0; i < CommonConstants.NumberOfSpawnBall; i++)
@@ -133,7 +137,6 @@ public class InGameManager : MonoBehaviour
                 GameManager.ReferenceBallList[i].SetActive(true);
             else
                 GameManager.ReferenceBallList[i].SetActive(false);
-
         }
     }
 

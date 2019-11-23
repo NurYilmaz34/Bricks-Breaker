@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using BricksBreaker.Data;
 using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    private bool IsScrollBreak = false;
     [SerializeField]
     public Brick[] Bricks;
     [SerializeField]
     public GameObject PlayerBall;
     public GameObject ReferenceBall;
+    public bool IsScrollBreak = false;
     public List<Ball> BallList                  { get; set; }
     public List<BrickData> BrickDataList        { get; set; }
     public List<GameObject> ReferenceBallList   { get; set; }
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         SetBrickData();
         GetBallList();
     }
-    
+
     public void CreateReferenceList() 
     {
         ReferenceBallList = new List<GameObject>();
@@ -106,24 +107,36 @@ public class GameManager : MonoBehaviour
 
     public void ScrollControl()
     {
+
         if (!IsGameOver() && IsBallOver())
         {
             IsScrollBreak = true;
         }
+        else
+            IsScrollBreak = false;
+
+        BrickScroll();
     }
 
-    private void BrickScroll()
+    public void BrickScroll()
     {
         if (IsScrollBreak == true)
         {
+            IsScrollBreak = false;
             for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
             {
                 Bricks[i].BrickData.Order -= new Vector3(0, 1, 0);
                 Bricks[i].transform.position = Bricks[i].BrickData.Order;
-                
             }
-            IsScrollBreak = false;
         }
+        else
+        {
+            for (int i = 0; i < CommonConstants.NumberOfBrick; i++)
+            {
+                Bricks[i].transform.position = Bricks[i].BrickData.Order;
+            }
+        }
+            
     }
 
 }

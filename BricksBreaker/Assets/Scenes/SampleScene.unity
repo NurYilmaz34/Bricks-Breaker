@@ -971,10 +971,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78317d72f5d59a4fb67f68eef835beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReferenceBall: {fileID: 1138320221869552782, guid: 331ed4c136972e64c9355a394513520b,
-    type: 3}
   Bricks: []
   PlayerBall: {fileID: 2046378912}
+  ReferenceBall: {fileID: 1138320221869552782, guid: 331ed4c136972e64c9355a394513520b,
+    type: 3}
+  IsScrollBreak: 0
 --- !u!4 &2126186261
 Transform:
   m_ObjectHideFlags: 0
