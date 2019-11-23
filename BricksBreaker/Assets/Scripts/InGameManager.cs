@@ -26,8 +26,8 @@ public class InGameManager : MonoBehaviour
     private bool showHelper = true;
     private bool triggerWall = false;
     private bool isMoving;
-    private bool scroll = false;
-    private int istouch = 0;
+    public int istouch = 0;
+    private bool isScroll = false;
 
     void Start()
     {
@@ -45,7 +45,6 @@ public class InGameManager : MonoBehaviour
     {
         if (Input.touchCount == 1)
         {
-            scroll = false;
             Touch finger = Input.GetTouch(0);
             if (finger.phase == TouchPhase.Began)
             {
@@ -85,11 +84,7 @@ public class InGameManager : MonoBehaviour
             else
                 return;
         }
-        if (istouch != 0)
-        {
-            GameManager.ScrollControl();
-            istouch = 0;
-        }
+        
     }
     
     private void HelperControl()
@@ -99,11 +94,19 @@ public class InGameManager : MonoBehaviour
             for (int i = 0; i < CommonConstants.HelperBall; i++)
             {
                 GameManager.ReferenceBallList[i].SetActive(false);
+                
             }
+            isScroll = true;
         }
         else
         {
             GetTouchPosition();
+            
+            if (GameManager.inactiveBall == CommonConstants.NumberOfSpawnBall && isScroll == true)
+            {
+                isScroll = false;
+                GameManager.ScrollControl();
+            }
         }
            
     }

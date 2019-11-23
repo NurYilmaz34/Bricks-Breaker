@@ -428,6 +428,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1280
   GameManager: {fileID: 2126186260}
+  istouch: 0
 --- !u!114 &662731199
 MonoBehaviour:
   m_ObjectHideFlags: 0

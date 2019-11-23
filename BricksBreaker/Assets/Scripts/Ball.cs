@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     [SerializeField]
     public InGameManager InGameManager;
 
+
     void Awake()
     {
         BallRigidbody = GetComponent<Rigidbody2D>();
@@ -40,6 +41,7 @@ public class Ball : MonoBehaviour
         {
             BallPool.Instance.ReturnToPool(this);
             this.transform.position = InGameManager.GameManager.PlayerBall.transform.position;
+            InGameManager.GameManager.inactiveBall++;
         }
     }
     

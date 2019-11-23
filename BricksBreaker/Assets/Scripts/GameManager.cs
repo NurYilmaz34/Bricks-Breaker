@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public List<Ball> BallList                  { get; set; }
     public List<BrickData> BrickDataList        { get; set; }
     public List<GameObject> ReferenceBallList   { get; set; }
-    
+    public int inactiveBall = 0;
+
 
     void Start()
     {
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
         }
         return true;
     }
-    
+
     public void BrickScroll()
     {
         if (IsScrollBreak == true)
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
                 Bricks[i].transform.position = Bricks[i].BrickData.Order;
             }
             IsScrollBreak = false;
+            inactiveBall = 0;
         }
         else
         {
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
     public void ScrollControl()
     {
 
-        if (!IsBrickOver() && IsBallOver())
+        if (!IsBrickOver())
         {
             IsScrollBreak = true;
         }
@@ -144,5 +146,12 @@ public class GameManager : MonoBehaviour
 
         BrickScroll();
     }
-
+    
+    public bool isGameOver()
+    {
+        if (IsBrickOver())
+            return true;
+        else
+            return false;
+    }
 }
