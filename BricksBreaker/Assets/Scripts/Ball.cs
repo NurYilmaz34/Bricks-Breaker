@@ -6,8 +6,7 @@ public class Ball : MonoBehaviour
     public Rigidbody2D BallRigidbody;
     [SerializeField]
     public InGameManager InGameManager;
-
-
+    
     void Awake()
     {
         BallRigidbody = GetComponent<Rigidbody2D>();

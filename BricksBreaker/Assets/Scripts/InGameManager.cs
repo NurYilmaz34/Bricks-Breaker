@@ -26,8 +26,8 @@ public class InGameManager : MonoBehaviour
     private bool showHelper = true;
     private bool triggerWall = false;
     private bool isMoving;
-    public int istouch = 0;
     private bool isScroll = false;
+    private bool isAngle;
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class InGameManager : MonoBehaviour
     {
         HelperControl();
     }
-    
+
     public void GetTouchPosition()
     {
         if (Input.touchCount == 1)
@@ -48,43 +48,33 @@ public class InGameManager : MonoBehaviour
             Touch finger = Input.GetTouch(0);
             if (finger.phase == TouchPhase.Began)
             {
-                istouch++;
                 ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                 SetAngleReferenceBallList();
                 isMoving = false;
             }
             else if (finger.phase == TouchPhase.Moved)
             {
-                istouch++;
-                ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                SetAngleReferenceBallList();
-                isMoving = false;
-            }
-            else if (finger.phase == TouchPhase.Stationary)
-            {
-                istouch++;
                 ReferenceBallSecondPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                 SetAngleReferenceBallList();
                 isMoving = false;
             }
             else if (finger.phase == TouchPhase.Ended)
             {
-                istouch++;
                 for (int i = 0; i < CommonConstants.HelperBall; i++)
                 {
                     GameManager.ReferenceBallList[i].SetActive(false);
                 }
                 isMoving = true;
+                
             }
 
-            if (isMoving == true)
+            if (isMoving == true && isAngle == true)
             {
                 StartCoroutine(SetSpawnBall());
             }
             else
                 return;
         }
-        
     }
     
     private void HelperControl()
@@ -94,7 +84,6 @@ public class InGameManager : MonoBehaviour
             for (int i = 0; i < CommonConstants.HelperBall; i++)
             {
                 GameManager.ReferenceBallList[i].SetActive(false);
-                
             }
             isScroll = true;
         }
@@ -107,8 +96,7 @@ public class InGameManager : MonoBehaviour
                 isScroll = false;
                 GameManager.ScrollControl();
             }
-        }
-           
+        }   
     }
     
     public IEnumerator SetSpawnBall()
@@ -131,6 +119,16 @@ public class InGameManager : MonoBehaviour
         TempYPosition = ReferenceBallFirstPosition.y;
 
         GetBall();
+    }
+
+    private void HelperBallAngleControl()
+    {
+        if (AngleReferenceBall < 0.03f)
+        {
+            showHelper = false;
+            isScroll = false;
+            isAngle = false;
+        }
     }
 
     public void GetBall()
@@ -165,10 +163,15 @@ public class InGameManager : MonoBehaviour
 
             TempXPosition += AngleValueXReferenceBallList/2f;
             TempYPosition += AngleValueYReferenceBallList/2f;
+            HelperBallAngleControl();
             GameManager.ReferenceBallList[i].transform.position = new Vector3(TempXPosition, TempYPosition, 0);
 
             if (showHelper == true)
+            {
+                isAngle = true;
                 GameManager.ReferenceBallList[i].SetActive(true);
+            }
+                
             else
                 GameManager.ReferenceBallList[i].SetActive(false);
         }
